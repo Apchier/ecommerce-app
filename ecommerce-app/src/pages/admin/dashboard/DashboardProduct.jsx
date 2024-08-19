@@ -18,37 +18,37 @@ export default function DashboardProduct() {
 
   const renderElements = () => {
     return products.map((product, index) => (
-      <tr key={index}>
+      <tr key={index} className={` ${index % 2 === 0 ? ' bg-[#eeeef1] ' : 'bg-white'}`}>
         <td>{index + 1}</td>
-        <td>{product.name}</td>
+        <td className="">{product.name}</td>
         <td>{product.category}</td>
         <td>{product.price}</td>
         <td className="flex justify-evenly mt-4 ">
-          <button className="bg-green-500 text-white px-4 py-2 rounded-lg">Edit</button>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">View</button>
-          <button className="bg-red-500 text-white px-4 py-2 rounded-lg">Delete</button>
+          <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300">Edit</button>
+          <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300">View</button>
+          <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300">Delete</button>
         </td>
       </tr>
     ));
   };
 
   return (
-    <div className="flex w-[1600px] h-screen container font-poppins">
-      <div className="flex w-full justify-center">
-        <table className="w-3/4 text-center border-gray-300 border-2 rounded-3xl">
-          <thead className="text-center">
+    <div className="flex w-[1600px] h-screen container justify-center font-poppins">
+      <div className="flex w-3/4 justify-center border-gray-300 rounded-xl border-2 p-2">
+        <table className="w-full text-center">
+          <thead className="text-center text-gray-600">
             <tr className="text-center border-b-2 border-gray-500">
               <th className="p-4">
-                <p className="flex justify-between items-center cursor-pointer">No<PiCaretUpDown className=""/></p>
+                <p className="flex justify-evenly items-center cursor-pointer">No<PiCaretUpDown className="" /></p>
               </th>
               <th className="p-4">
-                <p className="flex justify-between items-center cursor-pointer">Name<PiCaretUpDown className=""/></p>
+                <p className="flex justify-evenly items-center cursor-pointer">Name<PiCaretUpDown className="" /></p>
               </th>
               <th className="p-4">
-                <p className="flex justify-between items-center cursor-pointer">Category<PiCaretUpDown className=""/></p>
+                <p className="flex justify-evenly items-center cursor-pointer">Category<PiCaretUpDown className="" /></p>
               </th>
               <th className="p-4">
-                <p className="flex justify-between items-center cursor-pointer">Price<PiCaretUpDown className=""/></p>
+                <p className="flex justify-evenly items-center cursor-pointer">Price<PiCaretUpDown className="" /></p>
               </th>
               <th className="p-4">
                 <p className="flex justify-center items-center cursor-pointer">Action</p>
