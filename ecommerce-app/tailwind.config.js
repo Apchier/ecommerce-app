@@ -7,5 +7,13 @@ export default {
   theme: {
     extend: {},
   },
+  colors: {
+    // ! border color
+    'border-gray': '#D1D5DB',
+    // ! text color
+    'text-gray': '#4B5563',
+    // ! background color
+    'bg-gray': '#f7f7f8',
+  },
   plugins: [],
 }
