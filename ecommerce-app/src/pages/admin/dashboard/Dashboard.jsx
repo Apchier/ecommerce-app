@@ -1,5 +1,5 @@
 export default function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <div className="flex w-[1600px] h-screen border-2 border-black">Dashboard</div>
   )
 }
