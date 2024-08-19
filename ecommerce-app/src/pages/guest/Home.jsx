@@ -84,7 +84,7 @@ export default function Home() {
             <p className="text-2xl font-bold my-3">High quality furniture <br /> modern inside</p>
             <p className="w-full flex justify-end underline underline-offset-2 cursor-pointer">Lean more</p>
           </div>
-          <div className="flex flex-col w-full h-full justify-between items-center bg-cover shadow-md border-4 border-white rounded-lg p-6" style={{ backgroundImage: `url(${bench})` }}>
+          <div className="flex flex-col w-full h-full justify-between items-center bg-cover shadow-md border-4 border-white rounded-2xl p-6" style={{ backgroundImage: `url(${bench})` }}>
             <div className="w-full flex justify-end">
               <button className="flex justify-center items-center w-[50px] h-[50px] p-2 rounded-full text-gray-600 font-semibold border-2 bg-[#f7f7f8] shadow-md">126</button>
             </div>
