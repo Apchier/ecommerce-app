@@ -1,11 +1,12 @@
 import chairLogin from "../../../public/assets/images/loginchair.jpg"
+import ButtonLogin from "../../components/elements/ButtonLogin"
 
 export default function Login() {
   return (
-    <div className="flex w-full h-screen justify-center">
-      <div className="flex justify-center w-[1600px] h-screen border-2 border-black">
+    <div className="flex w-full h-screen justify-center font-poppins">
+      <div className="flex justify-center w-[1600px] min-h-screen">
         <div className="flex items-center w-1/2 justify-center min-h-screen bg-gray-50 py-6 sm:py-12">
-          <div className="relative py-3 w-[480px] text-center bg-white shadow-lg p-6">
+          <div className="relative py-3 w-[450px] text-center bg-white shadow-xl p-10">
             <div>
               <img src="/assets/logo.png" alt="Logo" className="mx-auto h-12 w-auto" />
               <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -15,24 +16,26 @@ export default function Login() {
                 Welcome to Filianta - Lets create your account
               </p>
             </div>
-            <form className="mt-8 space-y-6">
-              <div className="rounded-md shadow-sm">
-                <div>
+            <form className="flex flex-col py-6 gap-4">
+              <div className="flex flex-col gap-4 rounded-md shadow-sm">
+                <div className="flex flex-col items-start gap-3">
+                  <label htmlFor="email" className="text-gray-600">Email</label>
                   <input
                     name="email"
                     type="email"
                     required
                     placeholder="Email"
-                    className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-md relative block w-full p-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
                   />
                 </div>
-                <div className="mt-2">
+                <div className="flex flex-col items-start gap-3">
+                <label htmlFor="email" className="text-gray-600">Password</label>
                   <input
                     name="password"
                     type="password"
                     required
                     placeholder="Password"
-                    className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-md relative block w-full p-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
                   />
                 </div>
               </div>
@@ -44,12 +47,7 @@ export default function Login() {
                 </div>
               </div>
               <div>
-                <button
-                  type="submit"
-                  className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                >
-                  Sign up
-                </button>
+                <ButtonLogin text={"Login"}/>
               </div>
             </form>
             <div className="mt-4 text-center text-sm text-gray-600">
