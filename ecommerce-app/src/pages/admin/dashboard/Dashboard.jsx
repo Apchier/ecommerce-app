@@ -1,7 +1,7 @@
 import vector from "../../../../public/assets/images/Vector-Dashboard.png";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
-import { Line } from "react-chartjs-2";
-import { Chart } from "chart.js/auto";
+import { Line } from 'react-chartjs-2';
+
 
 export default function Dashboard() {
 
