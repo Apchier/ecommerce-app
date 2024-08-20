@@ -1,45 +1,8 @@
 import vector from "../../../../public/assets/images/Vector-Dashboard.png";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
-import { Line } from 'react-chartjs-2';
 
 
 export default function Dashboard() {
-
-  const data = {
-    labels: ['', '', '', '', '', '', ''],
-    datasets: [
-      {
-        data: [22, 25, 20, 30, 25, 20, 22],
-        fill: false,
-        borderColor: '#fff',
-        tension: 0.4,
-        pointRadius: 0,
-      },
-    ],
-  };
-
-  const options = {
-    maintainAspectRatio: false,
-    scales: {
-      y: {
-        display: false,
-      },
-      x: {
-        display: false,
-      },
-    },
-    elements: {
-      line: {
-        borderWidth: 2,
-      },
-    },
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-  };
-
   // Data dummy untuk tabel pengguna
   const users = [
     { id: 1, name: "John Doe", email: "john.doe@example.com", status: "Active" },
