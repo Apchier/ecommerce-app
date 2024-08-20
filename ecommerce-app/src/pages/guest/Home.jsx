@@ -15,7 +15,7 @@ export default function Home() {
       <div className="w-full flex flex-col justify-center items-center gap-10 h-[700px] border-4 border-white bg-cover rounded-3xl" style={{ backgroundImage: `url(${heroImg})` }}>
         <h1 className="w-[1000px] text-center text-5xl font-bold text-white drop-shadow-md">Transform your space with modern furniture that combines style and comfort in perfect harmony</h1>
         <div className="flex justify-center items-center gap-4 w-[650px] bg-white p-2 rounded-2xl shadow-md">
-          <input type="text" placeholder="Find furniture..." className="text-xl text-gray p-1 w-[600px] outline-none" />
+          <input type="text" placeholder="Find your furniture..." className="text-lg text-gray p-1 w-[600px] outline-none" />
           <HiMiniMagnifyingGlass className="text-3xl text-gray-400" />
         </div>
       </div>
