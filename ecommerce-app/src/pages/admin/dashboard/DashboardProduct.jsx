@@ -23,7 +23,7 @@ export default function DashboardProduct() {
         <td className="">{product.name}</td>
         <td>{product.category}</td>
         <td>{product.price}</td>
-        <td className="flex justify-evenly mt-4 ">
+        <td className="flex justify-evenly mt-4 font-semibold ">
           <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300">Edit</button>
           <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300">View</button>
           <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300">Delete</button>
