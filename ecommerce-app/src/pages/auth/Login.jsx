@@ -9,7 +9,7 @@ export default function Login() {
     <div className="flex w-full h-screen justify-center font-poppins">
       <div className="flex justify-center w-[1600px] min-h-screen">
         <div className="relative flex items-center w-1/2 justify-center min-h-screen bg-gray-50 sm:py-12">
-          <Link to={"/"} className="absolute flex justify-center items-center top-5 left-5 w-[40px] aspect-square border-2 border-gray-600 rounded-full">
+          <Link to={"/"} className="absolute flex justify-center items-center top-6 left-6 w-[40px] aspect-square border-2 text-gray-500 border-gray-500 rounded-full shadow-md">
             <FiArrowLeft size={25} />
           </Link>
           <div className="relative py-8 w-[450px] text-center bg-white shadow-lg p-10 rounded-xl">
@@ -58,13 +58,16 @@ export default function Login() {
             </form>
             <div className="mt-4 text-center text-sm text-gray-600">
               Dont have an account?{' '}
-              <a href="#" className="font-medium text-green-600 hover:text-green-500">
+              <Link to={"/auth/register"} className="font-medium text-green-600 hover:text-green-500">
                 Create account
-              </a>
+              </Link>
             </div>
           </div>
         </div>
-        <div className="w-1/2 bg-cover" style={{ backgroundImage: `url(${chairLogin})` }}></div>
+        <div className="w-1/2 bg-cover flex flex-col gap-2 p-20" style={{ backgroundImage: `url(${chairLogin})` }}>
+          <span className="text-xl text-white drop-shadow-md mt-40">Lets create something <br /> beautiful. Start decorating your</span>
+          <h1 className="text-8xl font-bold text-white drop-shadow-md">Home</h1>
+        </div>
       </div>
     </div>
   )
