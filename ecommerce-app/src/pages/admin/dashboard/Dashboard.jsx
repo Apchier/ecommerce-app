@@ -1,4 +1,4 @@
-import vector from "../../../../public/assets/images/Vector-Dashboard.png"
+import vector from "../../../../public/assets/images/Vector-Dashboard.png";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import { Line } from 'react-chartjs-2';
 
@@ -39,8 +39,17 @@ export default function Dashboard() {
       },
     },
   };
+
+  // Data dummy untuk tabel pengguna
+  const users = [
+    { id: 1, name: "John Doe", email: "john.doe@example.com", status: "Active" },
+    { id: 2, name: "Jane Smith", email: "jane.smith@example.com", status: "Inactive" },
+    { id: 3, name: "Bob Johnson", email: "bob.johnson@example.com", status: "Active" },
+    { id: 4, name: "Alice Brown", email: "alice.brown@example.com", status: "Active" },
+  ];
+
   return (
-    <div className="flex w-[1600px] h-screen container flex-col gap-10 text-text-gray">
+    <div className="flex w-[1600px] min-h-screen container flex-col gap-10 text-text-gray">
       <div className="flex container bg-white rounded-2xl h-1/2">
         <div className="w-full flex justify-around items-center">
           <div className="w-1/2">
@@ -82,7 +91,7 @@ export default function Dashboard() {
             </div>
             <p className="text-white mt-4">Audience Change</p>
             <div className="h-12 mt-4">
-              <Line data={data} options={options} />
+              {/* <Line data={data} options={options} /> */}
             </div>
           </div>
           <div className="p-6 bg-gradient-to-r from-purple-400 to-indigo-500 rounded-2xl shadow-lg relative">
@@ -94,7 +103,7 @@ export default function Dashboard() {
             </div>
             <p className="text-white mt-4">Unsubscribes and Bounces</p>
             <div className="h-12 mt-4">
-              <Line data={data} options={options} />
+              {/* <Line data={data} options={options} /> */}
             </div>
           </div>
           <div className="p-6 bg-gradient-to-r from-teal-400 to-blue-500 rounded-2xl shadow-lg relative">
@@ -106,7 +115,7 @@ export default function Dashboard() {
             </div>
             <p className="text-white mt-4">Opened</p>
             <div className="h-12 mt-4">
-              <Line data={data} options={options} />
+              {/* <Line data={data} options={options} /> */}
             </div>
           </div>
           <div className="p-6 bg-gradient-to-r from-purple-500 to-blue-700 rounded-2xl shadow-lg relative">
@@ -118,9 +127,34 @@ export default function Dashboard() {
             </div>
             <p className="text-white mt-4">Clicked</p>
             <div className="h-12 mt-4">
-              <Line data={data} options={options} />
+              {/* <Line data={data} options={options} /> */}
             </div>
           </div>
+        </div>
+        
+        {/* Tabel Pengguna */}
+        <div className="overflow-x-auto rounded-2xl shadow-lg mt-10 p-6">
+          <h2 className="text-2xl font-bold mb-4">User Table</h2>
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {users.map((user) => (
+                <tr key={user.id}>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.id}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.name}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.email}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
