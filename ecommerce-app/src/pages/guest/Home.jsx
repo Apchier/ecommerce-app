@@ -3,6 +3,7 @@ import kitchen from "../../../public/assets/images/kitchen.jpg"
 import diningroom from "../../../public/assets/images/dining-room.jpg"
 import livingroom from "../../../public/assets/images/living-room.jpg"
 import bench from "../../../public/assets/images/bench.jpg"
+import Button from "../../components/elements/ButtonPrimmary"
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import { GoPlus } from "react-icons/go";
 import { FaPlus } from "react-icons/fa";
@@ -33,9 +34,9 @@ export default function Home() {
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-500">Kitchen set</h5>
               </a>
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In sapiente adipisci fugit! In soluta, explicabo iste doloremque.</p>
-              <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray rounded-lg shadow-lg bg-gray-100">
-                See more
-              </a>
+              <div className="w-[150px]">
+                <Button text={"see more"} />
+              </div>
             </div>
           </div>
           <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md">
@@ -47,9 +48,9 @@ export default function Home() {
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-500">Dining room set</h5>
               </a>
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In sapiente adipisci fugit! In soluta, explicabo iste doloremque.</p>
-              <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray rounded-lg shadow-lg bg-gray-100">
-                See more
-              </a>
+              <div className="w-[150px]">
+                <Button text={"see more"} />
+              </div>
             </div>
           </div>
           <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md">
@@ -61,9 +62,9 @@ export default function Home() {
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-500">Living room set</h5>
               </a>
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In sapiente adipisci fugit! In soluta, explicabo iste doloremque.</p>
-              <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-gray rounded-lg shadow-lg bg-gray-100">
-                See more
-              </a>
+              <div className="w-[150px]">
+                <Button text={"see more"} />
+              </div>
             </div>
           </div>
         </div>
@@ -92,7 +93,7 @@ export default function Home() {
             <div className="w-full flex justify-start">
               <Link to={"/shopping-cart"} className="flex justify-center items-center gap-3 bg-[#f7f7f8] font-semibold text-md px-3 py-2 rounded-2xl shadow-md outline-none">
                 See All Products
-                <MdArrowRightAlt/>
+                <MdArrowRightAlt />
               </Link>
             </div>
           </div>

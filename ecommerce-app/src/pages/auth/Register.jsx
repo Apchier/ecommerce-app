@@ -1,5 +1,5 @@
 import chairLogin from "../../../public/assets/images/loginchair.jpg"
-import ButtonLogin from "../../components/elements/ButtonLogin"
+import ButtonLogin from "../../components/elements/ButtonPrimmary"
 import logo from "../../../public/assets/images/logo.png"
 import { FiArrowLeft } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -59,7 +59,7 @@ export default function Register() {
             <div className="mt-4 text-center text-sm text-gray-600">
               Already have an account?{' '}
               <Link to={"/auth/login"} className="font-medium text-green-600 hover:text-green-500">
-               Login
+                Login
               </Link>
             </div>
           </div>

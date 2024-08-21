@@ -1,5 +1,5 @@
 import chairLogin from "../../../public/assets/images/loginchair.jpg"
-import ButtonLogin from "../../components/elements/ButtonLogin"
+import ButtonLogin from "../../components/elements/ButtonPrimmary"
 import logo from "../../../public/assets/images/logo.png"
 import { FiArrowLeft } from "react-icons/fi";
 import { Link } from "react-router-dom";

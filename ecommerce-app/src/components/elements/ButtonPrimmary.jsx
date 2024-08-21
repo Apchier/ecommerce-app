@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 // eslint-disable-next-line react/prop-types
-const Button = ({text}) => {
+const Button = ({ text }) => {
   return (
     <StyledWrapper>
       <button className="button2">{text}</button>
     </StyledWrapper>
-  )
-}
+  );
+};
 
 const StyledWrapper = styled.div`
   .button2 {
