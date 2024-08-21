@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { PiCaretUpDown } from "react-icons/pi";
+import Swal from "sweetalert2";
 
 export default function DashboardProduct() {
   const [products, setProducts] = useState([]);
   const productsPerPage = 10;
   const currentPage = 1;
+  // const { id } = useParams();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -16,6 +18,43 @@ export default function DashboardProduct() {
     fetchProducts();
   }, []);
 
+  const deleteProduct = async (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const response = await fetch(`http://localhost:4455/products/${id}?key=aldypanteq`, {
+            method: 'DELETE',
+          });
+          if (!response.ok) {
+            throw new Error('Failed to delete product');
+          }
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your product has been deleted.",
+            icon: "success"
+          }).then(() => {
+            window.location.reload();
+          });
+        } catch (error) {
+          console.error(error);
+          Swal.fire({
+            title: "Error",
+            text: "Failed to delete the product.",
+            icon: "error"
+          });
+        }
+      }
+    })
+  };
+
   const renderElements = () => {
     return products.map((product, index) => (
       <tr key={index} className={` ${index % 2 === 0 ? ' bg-[#eeeef1] ' : 'bg-white'}`}>
@@ -26,7 +65,7 @@ export default function DashboardProduct() {
         <td className="flex justify-evenly mt-4 font-semibold ">
           <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300">Edit</button>
           <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300">View</button>
-          <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300">Delete</button>
+          <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300" onClick={() => deleteProduct(product.id)}>Delete</button>
         </td>
       </tr>
     ));
