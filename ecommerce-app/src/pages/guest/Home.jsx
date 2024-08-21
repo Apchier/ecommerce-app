@@ -7,6 +7,7 @@ import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import { GoPlus } from "react-icons/go";
 import { FaPlus } from "react-icons/fa";
 import { MdArrowRightAlt } from "react-icons/md";
+import { Link } from "react-router-dom"
 
 
 export default function Home() {
@@ -89,10 +90,10 @@ export default function Home() {
               <button className="flex justify-center items-center w-[50px] h-[50px] p-2 rounded-full text-gray-600 font-semibold border-2 bg-[#f7f7f8] shadow-md">126</button>
             </div>
             <div className="w-full flex justify-start">
-              <button className="flex justify-center items-center gap-3 bg-[#f7f7f8] font-semibold text-md px-3 py-2 rounded-2xl shadow-md outline-none">
+              <Link to={"/shopping-cart"} className="flex justify-center items-center gap-3 bg-[#f7f7f8] font-semibold text-md px-3 py-2 rounded-2xl shadow-md outline-none">
                 See All Products
                 <MdArrowRightAlt/>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

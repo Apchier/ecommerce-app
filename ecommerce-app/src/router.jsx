@@ -8,6 +8,7 @@ import DashboardProductCreate from "./pages/admin/dashboard/DashboardProductCrea
 import AuthLayout from "./components/layouts/AuthLayout";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import ShoppingCart from "./pages/guest/ShoppingCart"
 
 export const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />,
+            },
+            {
+                path: "shopping-cart", 
+                element: <ShoppingCart />,
             },
         ],
     },
