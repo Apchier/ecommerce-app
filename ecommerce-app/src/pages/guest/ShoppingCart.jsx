@@ -59,7 +59,19 @@ export default function ShoppingCart() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center gap-6 bg-contain rounded-2xl">
+    <div className="flex flex-col justify-center items-center gap-4 py-4">
+      <div className="flex w-full justify-between items-center">
+        <div className="text-xl font-semibold">Showing all products</div>
+        <div className="flex justify-center items-center text-lg">
+          <label htmlFor="" className="mr-2">Sort By :</label>
+          <select className="select select-bordered w-[300px] text-lg">
+            <option disabled selected>Latest</option>
+            <option>Reviews</option>
+            <option>Highest Price</option>
+            <option>Lower Price</option>
+          </select>
+        </div>
+      </div>
       <div className="flex flex-wrap justify-between w-[1600px] items-center min-h-screen gap-4 rounded-xl">
         {renderElements()}
       </div>
