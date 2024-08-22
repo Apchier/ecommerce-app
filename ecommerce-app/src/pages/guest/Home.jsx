@@ -13,7 +13,7 @@ import { Link } from "react-router-dom"
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-[1600px] h-auto rounded-3xl gap-4">
+    <div className="flex flex-col justify-center items-center w-[1600px] h-auto rounded-3xl gap-4">
       <div className="w-full flex flex-col justify-center items-center gap-10 h-[700px] border-4 border-white bg-cover rounded-3xl" style={{ backgroundImage: `url(${heroImg})` }}>
         <h1 className="w-[1000px] text-center text-5xl font-bold text-white drop-shadow-md">Transform your space with modern furniture that combines style and comfort in perfect harmony</h1>
         <div className="flex justify-center items-center gap-4 w-[650px] bg-white p-2 rounded-2xl shadow-md">
@@ -69,7 +69,7 @@ export default function Home() {
           </div>
         </div>
         <div className="w-1/4 flex flex-col gap-4 justify-center items-center rounded-lg">
-          <div className="flex flex-col w-full border-2 border-gray-300 bg-[#f7f7f8] p-6 gap-1 text-gray-500 rounded-2xl shadow-md">
+          <div className="flex flex-col w-full border-4 border-gray-300 bg-[#f7f7f8] p-6 gap-1 text-gray-500 rounded-2xl shadow-md">
             <div className="flex w-full justify-between items-center">
               <button className="flex justify-center items-center gap-3 bg-[#f7f7f8] font-semibold text-xl px-3 py-2 border-2 rounded-2xl">
                 explore
@@ -79,7 +79,7 @@ export default function Home() {
                 <FaPlus />
               </button>
             </div>
-            <div className="flex flex-col items-start text-md">
+            <div className="flex flex-col items-start text-sm">
               <p>Build your home</p>
               <span className="font-semibold">LIKE YOU WANTED</span>
             </div>

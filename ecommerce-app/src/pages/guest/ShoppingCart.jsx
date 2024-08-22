@@ -13,7 +13,7 @@ export default function ShoppingCart() {
         const response = await fetch(`http://localhost:4455/products?key=aldypanteq&page=${currentPage}&limit=${productsPerPage}`);
         const result = await response.json();
         setProducts(result.data.products);
-        setTotalProducts(result.data.total); // Assume the total count is returned by the API
+        setTotalProducts(result.data.total);
         console.log(result);
       } catch (error) {
         console.error("Error fetching products:", error);
