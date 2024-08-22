@@ -63,36 +63,19 @@ export default function DashboardProductDetail() {
 
     const renderElements = () => {
         return (
-            <div className="container mx-auto w-[1300px] p-6 pt-[120px]">
-                <div className="flex flex-col lg:flex-row gap-8">
-                    {/* Product Image */}
-                    <div className="lg:w-1/2">
-                        <img
-                            src={product?.image}
-                            alt="Product Name"
-                            className="w-full h-auto rounded-lg shadow-xl"
-                        />
-                    </div>
-
-                    {/* Product Information */}
-                    <div className="lg:w-1/2">
-                        <h1 className="text-3xl font-bold text-gray-600">
-                            {product?.name}
-                        </h1>
-                        <p className="mt-4 text-gray-400">
-                            {product?.description}
-                        </p>
-                        <p className="mt-4 text-2xl font-semibold text-red-600">
-                            {product?.price}
-                        </p>
-
-                        <div className="mt-6">
-                            <h2 className="text-xl font-semibold text-gray-600">Category</h2>
-                            <p className="mt-2 text-gray-400 ">
-                                {product?.category}
-                            </p>
+            <div className="hero bg-white">
+                <div className="hero-content flex-col lg:flex-row">
+                    <img
+                        src={"https://placehold.co/400x400"}
+                        className="max-w-sm rounded-lg shadow-xl" />
+                    <div>
+                        <h1 className="text-5xl font-bold">{product?.name}</h1>
+                        <div className="py-6">
+                        <p className="">{product?.description}</p>
+                        <p className="text-sm text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid incidunt neque fugiat <br /> odio fuga cupiditate vitae eum vero quae sed?</p>
                         </div>
-
+                        <p className="text-green-600">Rp. {product?.price}</p>
+                        <p>{product?.category}</p>
                         <div className="flex items-center gap-4">
                             <div className="mt-6">
                                 <Link to={"/dashboard/product"} className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">Kembali
@@ -111,7 +94,7 @@ export default function DashboardProductDetail() {
 
 
     return (
-        <div className="w-full h-screen bg-[#f5f5f5]">
+        <div className="flex justify-center items-center w-[1200px] h-[600px] bg-white rounded-3xl shadow-md">
             {renderElements()}
         </div>
     )

@@ -63,8 +63,8 @@ export default function DashboardProductCreate() {
   };
 
   return (
-    <div className="flex w-[1600px] min-h-screen text-gray-600 justify-center items-center">
-      <div className="w-3/4 flex justify-center items-center p-6 bg-white rounded-lg shadow-lg">
+    <div className="flex w-[1600px] text-gray-600 justify-center items-center">
+      <div className="w-3/4 flex justify-center items-center p-6 h-[600px] bg-white rounded-lg shadow-lg">
         <div className="w-1/2 flex flex-col tracking-wide gap-3">
           <p className="text-3xl font-bold text-gray-800">Your product is being prepared...</p>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
