@@ -1,5 +1,7 @@
 import vector from "../../../../public/assets/images/Vector-Dashboard.png";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
+import UserTable from "../../../components/elements/UserTable";
+import SecondaryStats from "../../../components/elements/SecondaryStats";
 
 
 export default function Dashboard() {
@@ -44,57 +46,8 @@ export default function Dashboard() {
         <p className="text-gray-600">
           See stats for your latest Campaign, and promote them to grow your audience.
         </p>
-        <div className="grid grid-cols-4 gap-6">
-          <div className="p-6 bg-gradient-to-r from-red-400 to-pink-500 rounded-2xl shadow-lg relative">
-            <div className="flex justify-between items-center">
-              <span className="text-white text-4xl font-bold">-22</span>
-              <span className="flex items-center text-white text-sm">
-                -1% <FaAngleDown className="ml-1" />
-              </span>
-            </div>
-            <p className="text-white mt-4">Audience Change</p>
-            <div className="h-12 mt-4">
-              {/* <Line data={data} options={options} /> */}
-            </div>
-          </div>
-          <div className="p-6 bg-gradient-to-r from-purple-400 to-indigo-500 rounded-2xl shadow-lg relative">
-            <div className="flex justify-between items-center">
-              <span className="text-white text-4xl font-bold">37</span>
-              <span className="flex items-center text-white text-sm">
-                +2% <FaAngleUp className="ml-1" />
-              </span>
-            </div>
-            <p className="text-white mt-4">Unsubscribes and Bounces</p>
-            <div className="h-12 mt-4">
-              {/* <Line data={data} options={options} /> */}
-            </div>
-          </div>
-          <div className="p-6 bg-gradient-to-r from-teal-400 to-blue-500 rounded-2xl shadow-lg relative">
-            <div className="flex justify-between items-center">
-              <span className="text-white text-4xl font-bold">8,778</span>
-              <span className="flex items-center text-white text-sm">
-                +6% <FaAngleUp className="ml-1" />
-              </span>
-            </div>
-            <p className="text-white mt-4">Opened</p>
-            <div className="h-12 mt-4">
-              {/* <Line data={data} options={options} /> */}
-            </div>
-          </div>
-          <div className="p-6 bg-gradient-to-r from-purple-500 to-blue-700 rounded-2xl shadow-lg relative">
-            <div className="flex justify-between items-center">
-              <span className="text-white text-4xl font-bold">652</span>
-              <span className="flex items-center text-white text-sm">
-                +1% <FaAngleUp className="ml-1" />
-              </span>
-            </div>
-            <p className="text-white mt-4">Clicked</p>
-            <div className="h-12 mt-4">
-              {/* <Line data={data} options={options} /> */}
-            </div>
-          </div>
-        </div>
 
+        {/* stats */}
         <div className="stats shadow">
           <div className="stat">
             <div className="stat-figure text-primary">
@@ -115,7 +68,6 @@ export default function Dashboard() {
             <div className="stat-desc">21% more than last month</div>
           </div>
 
-          {/* stats */}
           <div className="stat shadow-md">
             <div className="stat-figure text-secondary">
               <svg
@@ -149,29 +101,41 @@ export default function Dashboard() {
           </div>
         </div>
 
+        <div className="grid grid-cols-4 gap-6">
+          <SecondaryStats
+            dataCount={"-22"}
+            percent={"-1%"}
+            icon={<FaAngleDown />}
+            desc={"Audience Change"}
+            className={"bg-gradient-to-r from-red-400 to-pink-500"}
+          />
+          <SecondaryStats
+            dataCount={"37"}
+            percent={"+2%"}
+            icon={<FaAngleUp />}
+            desc={"Unsubscribes and Bounces"}
+            className={"bg-gradient-to-r from-purple-400 to-indigo-500"}
+          />
+          <SecondaryStats
+            dataCount={"8,778"}
+            percent={"+6%"}
+            icon={<FaAngleUp />}
+            desc={"Opened"}
+            className={"bg-gradient-to-r from-teal-400 to-blue-500"}
+          />
+          <SecondaryStats
+            dataCount={"652"}
+            percent={"+1%"}
+            icon={<FaAngleUp />}
+            desc={"Clicked"}
+            className={"bg-gradient-to-r from-purple-500 to-blue-700"}
+          />
+        </div>
+
         {/* Tabel Pengguna */}
         <div className="overflow-x-auto rounded-2xl shadow-lg p-6">
           <h2 className="text-2xl font-bold mb-4">User Table</h2>
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {users.map((user) => (
-                <tr key={user.id}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.id}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.name}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.email}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.status}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <UserTable users={users} />
         </div>
       </div>
     </div>

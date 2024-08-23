@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ButtonLogin from "../../components/elements/ButtonPrimmary"
+import ProductCard from "../../components/elements/ProductCard";
 
 export default function ShoppingCart() {
   const [products, setProducts] = useState([]);
@@ -24,25 +24,7 @@ export default function ShoppingCart() {
 
   const renderElements = () => {
     return products.map((product, index) => (
-      <div key={index} className="card glass w-96 shadow-md">
-        <figure>
-          <img
-            src={"https://placehold.co/400x200"}
-            alt={product.name}
-          />
-        </figure>
-        <div className="flex flex-col gap-1 p-4">
-          <div className="flex justify-between">
-            <h2 className="card-title">{product.name}</h2>
-            <p className="text-green-600">Rp. {product.price}</p>
-          </div>
-          <p>{product.category}</p>
-          <p>{product.description}</p>
-          <div className="card-actions justify-end mt-2">
-            <ButtonLogin text={"Add to cart"} />
-          </div>
-        </div>
-      </div>
+      <ProductCard key={index} product={product} />
     ));
   };
 

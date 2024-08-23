@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import Create from "../../../../public/assets/images/Create.png";
+import InputGroup from "../../../components/elements/InputGroup";
 
 export default function DashboardProductCreate() {
   const [product, setProduct] = useState({
@@ -64,60 +65,57 @@ export default function DashboardProductCreate() {
 
   return (
     <div className="flex w-[1600px] text-gray-600 justify-center items-center">
-      <div className="w-3/4 flex justify-center items-center p-6 h-[600px] bg-white rounded-lg shadow-lg">
+      <div className="w-3/4 flex justify-center items-center p-10 h-[600px] bg-white rounded-lg shadow-lg">
         <div className="w-1/2 flex flex-col tracking-wide gap-3">
           <p className="text-3xl font-bold text-gray-800">Your product is being prepared...</p>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
           <img src={Create} className="w-full mt-4" alt="Create" />
         </div>
         <form className="w-1/2 flex flex-col gap-4" onSubmit={submitHandler}>
-          <input
-            type="text"
-            name="name"
+          <InputGroup
+            type={"text"}
+            name={"name"}
+            placeholder={"Product Name"}
+            required
             value={product.name}
             onChange={handleChange}
-            placeholder="Product Name"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <input
-            type="text"
-            name="category"
+          <InputGroup
+            type={"text"}
+            name={"category"}
+            placeholder={"Category"}
             value={product.category}
             onChange={handleChange}
-            placeholder="Category"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <input
-            type="number"
-            name="price"
+          <InputGroup
+            type={"number"}
+            name={"price"}
+            placeholder={"Price"}
             value={product.price}
             onChange={handleChange}
-            placeholder="Price"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <input
-            type="text"
-            name="description"
+          <InputGroup
+            type={"text"}
+            name={"description"}
+            placeholder={"Description"}
             value={product.description}
             onChange={handleChange}
-            placeholder="Description"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <input
-            type="text"
-            name="image"
+          <InputGroup
+            type={"text"}
+            name={"image"}
+            placeholder={"Image URL"}
             value={product.image}
             onChange={handleChange}
-            placeholder="Image URL"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+
           <button
             type="submit"
             className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
           >
             Create Product
           </button>
-          {message && <p className="mt-4 text-center text-red-500">{message}</p>}
+          {message && <p className="mt-4 text-center text-green-500">{message}</p>}
         </form>
       </div>
     </div>

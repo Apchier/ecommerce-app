@@ -3,6 +3,7 @@ import ButtonLogin from "../../components/elements/ButtonPrimmary"
 import logo from "../../../public/assets/images/logo.png"
 import { FiArrowLeft } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import InputGroup from "../../components/elements/InputGroup";
 
 export default function Register() {
   return (
@@ -26,22 +27,20 @@ export default function Register() {
               <div className="flex flex-col gap-4 rounded-md">
                 <div className="flex flex-col items-start gap-3">
                   <label htmlFor="email" className="text-gray-600">Email</label>
-                  <input
-                    name="email"
-                    type="email"
+                  <InputGroup
+                    type={"email"}
+                    name={"email"}
+                    placeholder={"Email"}
                     required
-                    placeholder="Email"
-                    className="appearance-none rounded-md relative block w-full p-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div className="flex flex-col items-start gap-3">
                   <label htmlFor="email" className="text-gray-600">Password</label>
-                  <input
-                    name="password"
-                    type="password"
+                  <InputGroup
+                    type={"password"}
+                    name={"password"}
+                    placeholder={"Password"}
                     required
-                    placeholder="Password"
-                    className="appearance-none rounded-md relative block w-full p-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
                   />
                 </div>
               </div>
