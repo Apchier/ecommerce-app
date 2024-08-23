@@ -47,7 +47,6 @@ export default function Dashboard() {
           See stats for your latest Campaign, and promote them to grow your audience.
         </p>
 
-        {/* stats */}
         <div className="stats shadow">
           <div className="stat">
             <div className="stat-figure text-primary">
@@ -132,7 +131,6 @@ export default function Dashboard() {
           />
         </div>
 
-        {/* Tabel Pengguna */}
         <div className="overflow-x-auto rounded-2xl shadow-lg p-6">
           <h2 className="text-2xl font-bold mb-4">User Table</h2>
           <UserTable users={users} />
