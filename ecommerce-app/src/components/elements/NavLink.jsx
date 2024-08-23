@@ -1,8 +1,18 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom";
 
 const NavLink = ({ text, href }) => {
-    return <Link to={href} className="hover-underline"> {text} </Link>
+    const location = useLocation();
+    const isActive = location.pathname === href;
+
+    return (
+        <Link 
+            to={href} 
+            className={`hover-underline ${isActive ? 'active' : ''}`}
+        > 
+            {text} 
+        </Link>
+    );
 }
 
-export default NavLink
+export default NavLink;

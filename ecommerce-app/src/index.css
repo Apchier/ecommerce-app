@@ -6,9 +6,9 @@
     display: inline-block;
     position: relative;
     /* color: #0087ca; */
-  }
-  
-  .hover-underline:after {
+}
+
+.hover-underline:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -19,9 +19,10 @@
     background-color: #4B5563;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
-  }
-  
-  .hover-underline:hover:after {
+}
+
+.hover-underline:hover:after,
+.hover-underline.active:after {
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
+}
