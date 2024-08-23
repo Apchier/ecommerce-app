@@ -66,7 +66,7 @@ export default function DashboardProduct() {
         <td className="py-4">{product.price}</td>
         <td className="text-center p-1 font-semibold">
           <div className="flex justify-evenly items-center gap-2">
-            <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300 w-[90px]">Edit</button>
+            <Link to={`/dashboard/edit/${product.id}`} className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300 w-[90px]">Edit</Link>
             <Link to={`/dashboard/detail/${product.id}`} className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300 w-[90px]">View</Link>
             <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300 w-[90px]" onClick={() => deleteProduct(product.id)}>Delete</button>
           </div>
@@ -113,17 +113,19 @@ export default function DashboardProduct() {
           </thead>
           <tbody className="divide-y-2 divide-gray-200">
             {renderElements()}
-            <td colSpan={5} className="pt-8 ">
-              <div className="join">
-                <button className="join-item btn" onClick={handlePreviousPage} disabled={currentPage === 1}>
-                  «
-                </button>
-                <button className="join-item btn">Page {currentPage}</button>
-                <button className="join-item btn" onClick={handleNextPage} disabled={currentPage >= Math.ceil(totalProducts / productsPerPage)}>
-                  »
-                </button>
-              </div>
-            </td>
+            <tr>
+              <td colSpan={5} className="py-3 ">
+                <div className="join">
+                  <button className="join-item btn" onClick={handlePreviousPage} disabled={currentPage === 1}>
+                    «
+                  </button>
+                  <button className="join-item btn">Page {currentPage}</button>
+                  <button className="join-item btn" onClick={handleNextPage} disabled={currentPage >= Math.ceil(totalProducts / productsPerPage)}>
+                    »
+                  </button>
+                </div>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
