@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Swal from "sweetalert2";
 import Create from "../../../../public/assets/images/Create.png";
 import InputGroup from "../../../components/elements/InputGroup";
+import { useCreateProduct } from "../../../features/product/useCreateProduct";
 
 export default function DashboardProductCreate() {
   const [product, setProduct] = useState({
@@ -11,57 +11,22 @@ export default function DashboardProductCreate() {
     description: "",
     image: "",
   });
-  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProduct((prev) => ({
       ...prev,
       [name]: value,
-    }));
-  };
+    }))
+  }
+
+  const { createProductData, message} = useCreateProduct()
 
   const submitHandler = (e) => {
     e.preventDefault();
     createProductData(product);
   };
 
-  const createProductData = async (data) => {
-    try {
-      const response = await fetch("http://localhost:4455/products?key=aldypanteq", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...data,
-          price: Number(data.price),
-        }),
-      });
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      const result = await response.json();
-      setMessage(result.message);
-      setProduct({ name: "", price: "", category: "", description: "", image: "" });
-
-      // Show SweetAlert success message
-      Swal.fire({
-        title: "Success!",
-        text: "Product has been created successfully.",
-        icon: "success",
-        confirmButtonText: "OK",
-      });
-    } catch (error) {
-      setMessage("Failed to create product");
-
-      // Show SweetAlert error message
-      Swal.fire({
-        title: "Error!",
-        text: "Failed to create product.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    }
-  };
 
   return (
     <div className="flex w-[1600px] text-gray-600 justify-center items-center">
