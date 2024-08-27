@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useNavigate , useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import InputGroup from "../../../components/elements/InputGroup";
+import { useUpdateProduct } from "../../../features/product/useUpdateProduct";
 
 
 export default function DashboardProductEdit() {
-    const [product, setProduct] = useState([]);
+    const [product, setProduct] = useState({});
     const { id } = useParams();
-    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -25,29 +25,11 @@ export default function DashboardProductEdit() {
     }, [id]);
     console.log(product);
 
-    const updateProduct = async () => {
-        try {
-            const response = await fetch(`http://localhost:4455/products/${id}?key=aldypanteq`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(product),
-            });
-            if (!response.ok) {
-                throw new Error(`Failed to update product`);
-            }
-            const result = await response.json();
-            console.log(result);
-            navigate('/dashboard/product');
-        } catch (error) {
-            console.error(error);
-        }
-    };
+    const { updateProduct } = useUpdateProduct();
 
     const submitHandler = (e) => {
         e.preventDefault();
-        updateProduct();
+        updateProduct(id , product);
         
     }
 

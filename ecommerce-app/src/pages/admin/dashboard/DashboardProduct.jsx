@@ -1,24 +1,10 @@
-import { useEffect, useState } from "react";
 import { PiCaretUpDown } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { useDeleteProduct } from "../../../features/product/useDeleteProduct";
+import { useProductID } from "../../../features/product/useProductID";
 
 export default function DashboardProduct() {
-  const [products, setProducts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalProducts, setTotalProducts] = useState(0);
-  const productsPerPage = 12;
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch(`http://localhost:4455/products?key=aldypanteq&page=${currentPage}&limit=${productsPerPage}`);
-      const result = await response.json();
-      setProducts(result.data.products);
-      setTotalProducts(result.data.total);
-      console.log(result);
-    };
-    fetchProducts();
-  }, [currentPage]);
+  const { products, currentPage, totalProducts, setCurrentPage, productsPerPage } = useProductID();
 
   const { deleteProduct } = useDeleteProduct();
 
