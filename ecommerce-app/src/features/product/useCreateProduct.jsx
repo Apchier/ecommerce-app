@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 export const useCreateProduct = () => {
     const [message, setMessage] = useState("");
-    const [error, setError] = useState(null);
+    const [error] = useState(null);
 
     const createProductData = async (data) => {
         try {
