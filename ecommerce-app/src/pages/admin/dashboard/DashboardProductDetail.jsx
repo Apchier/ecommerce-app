@@ -1,28 +1,20 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useFetchProductId } from "../../../features/product";
 
 
 export default function DashboardProductDetail() {
     const [product, setProduct] = useState(null);
     const { id } = useParams();
     const navigate = useNavigate();
+    const { product: fetchProduct } = useFetchProductId();
 
     useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const response = await fetch(`http://localhost:4455/products/${id}?key=aldypanteq`);
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch product`);
-                }
-                const result = await response.json();
-                setProduct(result.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchProduct();
-    }, [id]);
+        if (fetchProduct) {
+            setProduct(fetchProduct);
+        }
+    }, [fetchProduct]);
 
     const deleteHandler = async () => {
         try {

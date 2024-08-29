@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Create from "../../../../public/assets/images/Create.png";
 import InputGroup from "../../../components/elements/InputGroup";
-import { useCreateProduct } from "../../../features/product/useCreateProduct";
+import { useCreateProduct } from "../../../features/product";
 
 export default function DashboardProductCreate() {
   const [product, setProduct] = useState({
