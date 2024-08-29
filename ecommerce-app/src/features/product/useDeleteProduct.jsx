@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export const useDeleteProduct = () => {
+  const navigate = useNavigate();
   const deleteProduct = async (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -24,7 +26,7 @@ export const useDeleteProduct = () => {
             text: "Your product has been deleted.",
             icon: "success"
           }).then(() => {
-            window.location.reload();
+            navigate('/dashboard/product');
           });
         } catch (error) {
           console.error(error);
