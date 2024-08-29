@@ -1,36 +1,27 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import InputGroup from "../../../components/elements/InputGroup";
-import { useUpdateProduct } from "../../../features/product/useUpdateProduct";
+import { useUpdateProduct } from "../../../features/product";
+import { useFetchProductId } from "../../../features/product";
 
 
 export default function DashboardProductEdit() {
     const [product, setProduct] = useState({});
     const { id } = useParams();
+    const { product: fetchProduct } = useFetchProductId();
 
     useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const response = await fetch(`http://localhost:4455/products/${id}?key=aldypanteq`);
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch product`);
-                }
-                const result = await response.json();
-                setProduct(result.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchProduct();
-    }, [id]);
-    console.log(product);
+        if (fetchProduct) {
+          setProduct(fetchProduct);
+        }
+      }, [fetchProduct]);
 
     const { updateProduct } = useUpdateProduct();
 
     const submitHandler = (e) => {
+        if (!product) return;
         e.preventDefault();
-        updateProduct(id , product);
-        
+        updateProduct(id, product);
     }
 
     const renderElements = () => {
@@ -81,7 +72,7 @@ export default function DashboardProductEdit() {
 
                             <button
                                 onClick={submitHandler}
-                                
+
                                 type="submit"
                                 className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
                             >
