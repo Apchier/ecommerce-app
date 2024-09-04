@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axiosIntance from "../../libs/axios";
 
 export const useFetchProductId = () => {
     const [product, setProduct] = useState(null);
@@ -7,11 +8,8 @@ export const useFetchProductId = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await fetch(`http://localhost:4455/products/${id}?key=aldypanteq`);
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch product`);
-                }
-                const result = await response.json();
+                const response = await axiosIntance.get(`http://localhost:4455/products/${id}?key=aldypanteq`);
+                const result = response.data;
                 setProduct(result.data);
             } catch (error) {
                 console.log(error);

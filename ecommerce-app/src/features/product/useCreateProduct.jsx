@@ -1,24 +1,15 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
+import axiosIntance from "../../libs/axios";
 
 export const useCreateProduct = () => {
     const [message, setMessage] = useState("");
-    const [error] = useState(null);
+    const [error, setError] = useState(null);
 
     const createProductData = async (data) => {
         try {
-            const response = await fetch("http://localhost:4455/products?key=aldypanteq", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    ...data,
-                    price: Number(data.price),
-                }),
-            });
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            const result = await response.json();
+            const response = await axiosIntance.post("/products?key=aldypanteq", data);
+            const result = response.data;
             setMessage(result.message);
 
             Swal.fire({
@@ -29,6 +20,7 @@ export const useCreateProduct = () => {
             });
         } catch (error) {
             setMessage("Failed to create product");
+            setError(error);
 
             Swal.fire({
                 title: "Error!",
