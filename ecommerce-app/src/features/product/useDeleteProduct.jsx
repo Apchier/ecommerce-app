@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import axiosIntance from "../../libs/axios";
 
 export const useDeleteProduct = () => {
   const navigate = useNavigate();
@@ -15,19 +16,16 @@ export const useDeleteProduct = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await fetch(`http://localhost:4455/products/${id}?key=aldypanteq`, {
-            method: 'DELETE',
-          });
-          if (!response.ok) {
-            throw new Error('Failed to delete product');
-          }
+          const response = await axiosIntance.delete(`/products/${id}?key=aldypanteq`)
+          const result = response.data
           Swal.fire({
             title: "Deleted!",
-            text: "Your product has been deleted.",
+            text: `${result.message}`,
             icon: "success"
           }).then(() => {
             navigate('/dashboard/product');
-          });
+            window.location.reload();
+          })
         } catch (error) {
           console.error(error);
           Swal.fire({

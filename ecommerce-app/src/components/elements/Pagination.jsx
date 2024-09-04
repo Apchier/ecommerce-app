@@ -19,7 +19,7 @@ const Pagination = ({ page, totalPages, setPage }) => {
         disabled={page === 1}
       >
         «
-      </Link>
+      </Link> 
       <button className="join-item btn">
         Page {page} of {totalPages}
       </button>
