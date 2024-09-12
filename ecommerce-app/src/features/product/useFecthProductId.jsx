@@ -8,7 +8,7 @@ export const useFetchProductId = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axiosIntance.get(`http://localhost:4455/products/${id}?key=aldypanteq`);
+                const response = await axiosIntance.get(`/products/${id}`);
                 const result = response.data;
                 setProduct(result.data);
             } catch (error) {

@@ -16,7 +16,7 @@ export const useDeleteProduct = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await axiosIntance.delete(`/products/${id}?key=aldypanteq`)
+          const response = await axiosIntance.delete(`/products/${id}`)
           const result = response.data
           Swal.fire({
             title: "Deleted!",

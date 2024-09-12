@@ -21,7 +21,7 @@ export default function DashboardProduct() {
       setError(null);
       try {
         const response = await axiosIntance.get(
-          `/products?key=aldypanteq&limit=${limit}&page=${page}`
+          `/products?&limit=${limit}&page=${page}`
         );
         const result = response.data;
         if (!result.data) {
