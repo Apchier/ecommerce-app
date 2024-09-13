@@ -1,71 +1,76 @@
-import { useState, useEffect } from "react";
 import ProductCard from "../../components/elements/ProductCard";
+import Pagination from "../../components/elements/Pagination";
+import axiosInstance from "../../libs/axios";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ShoppingCart() {
   const [products, setProducts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalProducts, setTotalProducts] = useState(0);
-  const productsPerPage = 12;
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [limit] = useState(9);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
+      setIsLoading(true);
+      setError(null);
       try {
-        const response = await fetch(`http://localhost:4455/products?key=aldypanteq&page=${currentPage}&limit=${productsPerPage}`);
-        const result = await response.json();
+        const response = await axiosInstance.get(
+          `/products?limit=${limit}&page=${page}`
+        )
+        const result = response.data;
+        if (!result.data) {
+          navigate(-1);
+          return
+        }
         setProducts(result.data.products);
-        setTotalProducts(result.data.total);
-        console.log(result);
+        setTotalPages(Math.ceil(result.data.total / limit));
       } catch (error) {
-        console.error("Error fetching products:", error);
+        setError(error instanceof Error ? error.message : "Something went wrong");
+      } finally {
+        setIsLoading(false)
       }
     };
-    fetchProducts();
-  }, [currentPage]);
+    fetchProducts()
+  }, [page, limit, navigate]);
 
   const renderElements = () => {
     return products.map((product, index) => (
       <ProductCard key={index} product={product} />
     ));
-  };
+  }
 
-  const handleNextPage = () => {
-    if (currentPage < Math.ceil(totalProducts / productsPerPage)) {
-      setCurrentPage((prevPage) => prevPage + 1);
-    }
-  };
-
-  const handlePreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prevPage) => prevPage - 1);
-    }
-  };
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>{error}</div>
 
   return (
     <div className="flex flex-col justify-center items-center gap-4 py-4">
       <div className="flex w-full justify-between items-center">
         <div className="text-xl font-semibold">Showing all products</div>
         <div className="flex justify-center items-center text-lg">
-          <label htmlFor="" className="mr-2">Sort By :</label>
-          <select className="select select-bordered w-[300px] text-lg">
-            <option disabled selected>Latest</option>
-            <option>Reviews</option>
-            <option>Highest Price</option>
-            <option>Lower Price</option>
+          <label htmlFor="sort" className="mr-2">Sort By :</label>
+          <select
+            id="sort"
+            className="select select-bordered w-[300px] text-lg"
+          >
+            <option value="highest">Highest Price</option>
+            <option value="lowest">Lower Price</option>
           </select>
         </div>
       </div>
-      <div className="flex flex-wrap justify-between w-[1600px] items-center min-h-screen gap-4 rounded-xl">
+
+      <div className="flex flex-wrap justify-between w-[1200px] items-center min-h-screen gap-4 rounded-xl">
         {renderElements()}
       </div>
-      <div className="join">
-        <button className="join-item btn" onClick={handlePreviousPage} disabled={currentPage === 1}>
-          «
-        </button>
-        <button className="join-item btn">Page {currentPage}</button>
-        <button className="join-item btn" onClick={handleNextPage} disabled={currentPage >= Math.ceil(totalProducts / productsPerPage)}>
-          »
-        </button>
-      </div>
+
+      <Pagination
+        page={page}
+        totalPages={totalPages}
+        setPage={setPage}
+      />
     </div>
-  );
+  )
 }

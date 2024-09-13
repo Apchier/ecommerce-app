@@ -33,9 +33,6 @@ export default function Navbar() {
                 <div className="flex justify-start items-center w-auto mr-10">
                     <NavLink text={"Product List"} href={"/dashboard/product"} />
                 </div>
-                <div className="flex justify-start items-center w-auto mr-10">
-                    <NavLink text={"Create"} href={"/dashboard/create"} />
-                </div>
             </div>
 
 
@@ -52,10 +49,10 @@ export default function Navbar() {
                         <div className="absolute top-[80px] right-0 w-[200px] bg-white shadow-lg border-2 border-gray-300 rounded-lg">
                             <ul className="flex flex-col items-center space-y-2 p-4">
                                 <li>
-                                    <NavLink text={"Home"} href={"/"} />
+                                    <NavLink text={"Create Product"} href={"/dashboard/create"} />
                                 </li>
                                 <li>
-                                    <NavLink text={"Logout"} href={"/auth/logout"} />
+                                    <NavLink text={"Logout"} href={"/"} />
                                 </li>
                             </ul>
                         </div>
