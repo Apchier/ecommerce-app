@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
-const InputGroup = ({ htmlFor, type, name, value, onChange, placeholder, className, required,error, touched }) => {
+const InputGroup = ({ htmlFor, label, type, name, value, onChange, placeholder, className, required,error, touched }) => {
     return (
-        <div>
-            <label htmlFor={htmlFor}></label>
+        <div className="flex flex-col w-full items-start gap-1">
+            <label htmlFor={htmlFor}>{label}</label>
             <input
                 type={type}
                 name={name}

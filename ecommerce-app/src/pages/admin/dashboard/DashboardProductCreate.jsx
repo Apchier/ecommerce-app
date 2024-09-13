@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Create from "../../../../public/assets/images/Create.png";
-import InputGroup from "../../../components/elements/InputGroup";
+import InputGroup from "../../../components/fragments/InputGroup";
 import { useCreateProduct } from "../../../features/product";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';

@@ -1,6 +1,6 @@
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import InputGroup from "../../../components/elements/InputGroup";
+import InputGroup from "../../../components/fragments/InputGroup";
 import { useUpdateProduct } from "../../../features/product";
 import { useFetchProductId } from "../../../features/product";
 import { useFormik } from "formik";
@@ -62,7 +62,7 @@ export default function DashboardProductEdit() {
                 image: product.image,
             });
         }
-    }, [product,]);
+    }, [product]);
 
     const renderElements = () => {
         return (

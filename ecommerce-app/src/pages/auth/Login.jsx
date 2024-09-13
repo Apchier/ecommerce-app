@@ -3,7 +3,7 @@ import ButtonLogin from "../../components/elements/ButtonPrimmary"
 import logo from "../../../public/assets/images/logo.png"
 import { FiArrowLeft } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import InputGroup from "../../components/elements/InputGroup";
+import InputGroup from "../../components/fragments/InputGroup";
 
 export default function Login() {
   return (
@@ -26,8 +26,9 @@ export default function Login() {
             <form className="flex flex-col py-6 gap-2">
               <div className="flex flex-col gap-4 rounded-md">
                 <div className="flex flex-col items-start gap-3">
-                  <label htmlFor="email" className="text-gray-600">Email</label>
                   <InputGroup
+                    htmlFor={"Email"}
+                    label={"Email"}
                     type={"email"}
                     name={"email"}
                     placeholder={"Email"}
@@ -35,8 +36,9 @@ export default function Login() {
                   />
                 </div>
                 <div className="flex flex-col items-start gap-3">
-                  <label htmlFor="email" className="text-gray-600">Password</label>
                   <InputGroup
+                    htmlFor={"Password"}
+                    label={"Password"}
                     type={"password"}
                     name={"password"}
                     placeholder={"Password"}
