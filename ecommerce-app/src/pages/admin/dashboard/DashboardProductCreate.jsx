@@ -58,7 +58,7 @@ export default function DashboardProductCreate() {
             label={"Product Name"}
             type={"text"}
             name={"name"}
-            placeholder={"Product Name"}
+            // placeholder={"Product Name"}
             required
             value={formik.values.name}
             onChange={formik.handleChange}
@@ -69,7 +69,7 @@ export default function DashboardProductCreate() {
             label={"Category"}
             type={"text"}
             name={"category"}
-            placeholder={"Category"}
+            // placeholder={"Category"}
             value={formik.values.category}
             onChange={formik.handleChange}
             error={formik.errors.category}
@@ -79,7 +79,7 @@ export default function DashboardProductCreate() {
             label={"Price"}
             type={"number"}
             name={"price"}
-            placeholder={"Price"}
+            // placeholder={"Price"}
             value={formik.values.price}
             onChange={formik.handleChange}
             error={formik.errors.price}
@@ -89,7 +89,7 @@ export default function DashboardProductCreate() {
             label={"Description"}
             type={"text"}
             name={"description"}
-            placeholder={"Description"}
+            // placeholder={"Description"}
             value={formik.values.description}
             onChange={formik.handleChange}
             error={formik.errors.description}
@@ -99,7 +99,7 @@ export default function DashboardProductCreate() {
             label={"Image URL"}
             type={"text"}
             name={"image"}
-            placeholder={"Image URL"}
+            // placeholder={"Image URL"}
             value={formik.values.image}
             onChange={formik.handleChange}
             error={formik.errors.image}

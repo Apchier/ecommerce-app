@@ -14,11 +14,6 @@ export default function DashboardProductDetail() {
         }
     }, [fetchProduct]);
 
-
-    const DeleteProduct = async (id) => {
-        await deleteProduct(id);
-    }
-
     if (!product) return <div>No Product Found</div>;
 
     const renderElements = () => {
@@ -47,7 +42,7 @@ export default function DashboardProductDetail() {
                             <div className="mt-6">
                                 <button
                                     className="px-6 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500"
-                                    onClick={() => DeleteProduct(product?.id)}
+                                    onClick={() => deleteProduct(product?.id)}
                                 >Delete
                                 </button>
                             </div>

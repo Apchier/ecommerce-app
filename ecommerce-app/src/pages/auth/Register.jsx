@@ -27,8 +27,8 @@ export default function Register() {
               <div className="flex flex-col gap-4 rounded-md">
                 <div className="flex flex-col items-start gap-3">
                   <InputGroup
-                    htmlFor={"Email"}
                     label={"Email"}
+                    htmlFor={"Email"}
                     type={"email"}
                     name={"email"}
                     placeholder={"Email"}
@@ -36,10 +36,9 @@ export default function Register() {
                   />
                 </div>
                 <div className="flex flex-col items-start gap-3">
-                  <label htmlFor="email" className="text-gray-600">Password</label>
                   <InputGroup
-                    htmlFor={"Password"}
                     label={"Password"}
+                    htmlFor={"Password"}
                     type={"password"}
                     name={"password"}
                     placeholder={"Password"}

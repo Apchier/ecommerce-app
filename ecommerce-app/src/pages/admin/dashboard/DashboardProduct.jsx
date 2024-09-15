@@ -14,6 +14,8 @@ export default function DashboardProduct() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const navigate = useNavigate();
+  
+  const { deleteProduct } = useDeleteProduct();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -40,12 +42,6 @@ export default function DashboardProduct() {
   }, [page, limit, navigate]);
 
 
-  const { deleteProduct } = useDeleteProduct();
-
-  const handleDelete = async (id) => {
-    await deleteProduct(id);
-  };
-
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
@@ -60,7 +56,7 @@ export default function DashboardProduct() {
           <div className="flex justify-evenly items-center gap-2">
             <Link to={`/dashboard/edit/${product.id}`} className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300 w-[90px]">Edit</Link>
             <Link to={`/dashboard/detail/${product.id}`} className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300 w-[90px]">View</Link>
-            <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300 w-[90px]" onClick={() => handleDelete(product.id)}>Delete</button>
+            <button className="bg-gray-100 text-gray-600 shadow-md px-4 py-2 rounded-l hover:bg-gray-300 transition-all ease-in-out duration-300 w-[90px]" onClick={() => deleteProduct(product.id)}>Delete</button>
           </div>
         </td>
       </tr>

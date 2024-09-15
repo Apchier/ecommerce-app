@@ -62,7 +62,7 @@ export default function DashboardProductEdit() {
                 image: product.image,
             });
         }
-    }, [product]);
+    }, [product])
 
     const renderElements = () => {
         return (
