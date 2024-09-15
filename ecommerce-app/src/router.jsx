@@ -11,6 +11,7 @@ import Register from "./pages/auth/Register";
 import ShoppingCart from "./pages/guest/ShoppingCart"
 import DashboardProductDetail from "./pages/admin/dashboard/DashboardProductDetail";
 import DashboardProductEdit from "./pages/admin/dashboard/DashboardProductEdit";
+import DashboardTest from "./pages/admin/dashboard/DashboardTest";
 
 export const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
             {
                 path: "product",
                 element: <DashboardProduct />,
+            },
+            {
+                path: "test",
+                element: < DashboardTest/>,
             },
             {
                 path: "create",
