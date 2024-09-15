@@ -33,6 +33,9 @@ export default function Navbar() {
                 <div className="flex justify-start items-center w-auto mr-10">
                     <NavLink text={"Product List"} href={"/dashboard/product"} />
                 </div>
+                <div className="flex justify-start items-center w-auto mr-10">
+                    <NavLink text={"Dashboard Test"} href={"/dashboard/test"} />
+                </div>
             </div>
 
 

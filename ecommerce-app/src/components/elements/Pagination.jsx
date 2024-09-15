@@ -11,7 +11,7 @@ const Pagination = ({ page, totalPages, setPage }) => {
   };
 
   return (
-    <div className="join">
+    <div className="flex justify-center items-center">
       <Link
         to={`${pathname}?page=${page - 1}`}
         onClick={() => handlePageChange(page - 1)}
