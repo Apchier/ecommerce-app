@@ -14,7 +14,7 @@ import { Link } from "react-router-dom"
 export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center w-[1300px] h-auto rounded-3xl gap-4">
-      <div className="w-full flex flex-col justify-center items-center gap-10 h-[700px] border-4 border-white bg-cover rounded-3xl" style={{ backgroundImage: `url(${heroImg})` }}>
+      <div className="w-full flex flex-col justify-center items-center gap-10 h-[550px] border-4 border-white bg-cover rounded-3xl" style={{ backgroundImage: `url(${heroImg})` }}>
         <h1 className="w-[1000px] text-center text-5xl font-bold text-white drop-shadow-md">Transform your space with modern furniture that combines style and comfort in perfect harmony</h1>
         <div className="flex justify-center items-center gap-4 w-[650px] bg-white p-2 rounded-2xl shadow-md">
           <input type="text" placeholder="Find your furniture..." className="text-lg text-gray p-1 w-[600px] outline-none" />
@@ -33,7 +33,7 @@ export default function Home() {
               <a href="#">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-500">Kitchen set</h5>
               </a>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In sapiente adipisci fugit! In soluta, explicabo iste doloremque.</p>
+              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In sapiente adipisci fugit! In soluta</p>
               <div className="w-[150px]">
                 <Button text={"see more"} />
               </div>
@@ -47,7 +47,7 @@ export default function Home() {
               <a href="#">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-500">Dining room set</h5>
               </a>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In sapiente adipisci fugit! In soluta, explicabo iste doloremque.</p>
+              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In sapiente adipisci fugit! In soluta</p>
               <div className="w-[150px]">
                 <Button text={"see more"} />
               </div>
@@ -61,7 +61,7 @@ export default function Home() {
               <a href="#">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-500">Living room set</h5>
               </a>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In sapiente adipisci fugit! In soluta, explicabo iste doloremque.</p>
+              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In sapiente adipisci fugit! In soluta</p>
               <div className="w-[150px]">
                 <Button text={"see more"} />
               </div>
@@ -79,10 +79,6 @@ export default function Home() {
               <button className="flex justify-center items-center w-[40px] h-[40px] p-2 rounded-full text-gray-400 border-2 bg-[#f7f7f8] shadow-md">
                 <FaPlus />
               </button>
-            </div>
-            <div className="flex flex-col items-start text-sm">
-              <p>Build your home</p>
-              <span className="font-semibold">LIKE YOU WANTED</span>
             </div>
             <p className="text-xl font-bold my-3">High quality furniture <br /> modern inside</p>
             <p className="w-full flex justify-end underline underline-offset-2 cursor-pointer">Lean more</p>
