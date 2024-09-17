@@ -13,7 +13,7 @@ export const useDeleteProduct = () => {
         const response = await axiosIntance.delete(`/products/${id}`)
         const { message } = response.data
         await SuccessAlert(message)
-        navigate('/dashboard/product')
+        navigate('/dashboard')
         window.location.reload()
       } catch (error) {
         console.error(error)
