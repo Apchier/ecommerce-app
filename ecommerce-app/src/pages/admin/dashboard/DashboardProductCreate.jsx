@@ -40,7 +40,7 @@ export default function DashboardProductCreate() {
     onSubmit: values => {
       createProductData(values);
       console.log(values);
-      navigate('/dashboard/product');
+      navigate('/dashboard');
     },
   });
 
