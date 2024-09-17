@@ -3,7 +3,6 @@ import MainLayout from "./components/layouts/MainLayout";
 import Home from "./pages/guest/Home";
 import DashboardLayout from "./components/layouts/DashboardLayout";
 import Dashboard from "./pages/admin/dashboard/Dashboard";
-import DashboardProduct from "./pages/admin/dashboard/DashboardProduct";
 import DashboardProductCreate from "./pages/admin/dashboard/DashboardProductCreate";
 import AuthLayout from "./components/layouts/AuthLayout";
 import Login from "./pages/auth/Login";
@@ -34,10 +33,6 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <Dashboard />,
-            },
-            {
-                path: "product",
-                element: <DashboardProduct />,
             },
             {
                 path: "create",

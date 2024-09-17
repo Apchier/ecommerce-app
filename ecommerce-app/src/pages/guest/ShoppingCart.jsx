@@ -62,7 +62,7 @@ export default function ShoppingCart() {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-between w-[1200px] items-center min-h-screen gap-4 rounded-xl">
+      <div className="flex flex-wrap justify-between w-[1300px] items-center min-h-screen gap-6 rounded-xl mb-2">
         {renderElements()}
       </div>
 

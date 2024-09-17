@@ -13,7 +13,7 @@ import { Link } from "react-router-dom"
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center w-[1600px] h-auto rounded-3xl gap-4">
+    <div className="flex flex-col justify-center items-center w-[1300px] h-auto rounded-3xl gap-4">
       <div className="w-full flex flex-col justify-center items-center gap-10 h-[700px] border-4 border-white bg-cover rounded-3xl" style={{ backgroundImage: `url(${heroImg})` }}>
         <h1 className="w-[1000px] text-center text-5xl font-bold text-white drop-shadow-md">Transform your space with modern furniture that combines style and comfort in perfect harmony</h1>
         <div className="flex justify-center items-center gap-4 w-[650px] bg-white p-2 rounded-2xl shadow-md">
@@ -25,9 +25,9 @@ export default function Home() {
       <div className="flex w-full justify-between gap-4">
         {/* card */}
         <div className="w-3/4 flex justify-center items-center gap-4">
-          <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md">
+          <div className="max-w-sm w-full h-auto bg-white border border-gray-200 rounded-lg shadow-md">
             <a href="#">
-              <img className="rounded-t-lg" src={kitchen} alt="" />
+              <img className="rounded-t-lg w-full object-cover h-44" src={kitchen} alt="" />
             </a>
             <div className="p-5">
               <a href="#">
@@ -39,9 +39,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md">
+          <div className="max-w-sm w-full h-auto bg-white border border-gray-200 rounded-lg shadow-md">
             <a href="#">
-              <img className="rounded-t-lg" src={diningroom} alt="" />
+              <img className="rounded-t-lg w-full object-cover h-44" src={diningroom} alt="" />
             </a>
             <div className="p-5">
               <a href="#">
@@ -53,9 +53,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md">
+          <div className="max-w-sm w-full h-auto bg-white border border-gray-200 rounded-lg shadow-md">
             <a href="#">
-              <img className="rounded-t-lg" src={livingroom} alt="" />
+              <img className="rounded-t-lg w-full object-cover h-44" src={livingroom} alt="" />
             </a>
             <div className="p-5">
               <a href="#">
@@ -68,10 +68,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+
         <div className="w-1/4 flex flex-col gap-4 justify-center items-center rounded-lg">
           <div className="flex flex-col w-full border-4 border-gray-300 bg-[#f7f7f8] p-6 gap-1 text-gray-500 rounded-2xl shadow-md">
             <div className="flex w-full justify-between items-center">
-              <button className="flex justify-center items-center gap-3 bg-[#f7f7f8] font-semibold text-xl px-3 py-2 border-2 rounded-2xl">
+              <button className="flex justify-center items-center gap-3 bg-[#f7f7f8] font-semibold text-xl px-3 border-2 rounded-2xl">
                 explore
                 <GoPlus />
               </button>
@@ -83,7 +84,7 @@ export default function Home() {
               <p>Build your home</p>
               <span className="font-semibold">LIKE YOU WANTED</span>
             </div>
-            <p className="text-2xl font-bold my-3">High quality furniture <br /> modern inside</p>
+            <p className="text-xl font-bold my-3">High quality furniture <br /> modern inside</p>
             <p className="w-full flex justify-end underline underline-offset-2 cursor-pointer">Lean more</p>
           </div>
           <div className="flex flex-col w-full h-full justify-between items-center bg-cover shadow-md border-4 border-white rounded-2xl p-6" style={{ backgroundImage: `url(${bench})` }}>

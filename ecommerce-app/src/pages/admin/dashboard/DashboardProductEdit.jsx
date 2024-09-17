@@ -45,7 +45,7 @@ export default function DashboardProductEdit() {
             if (id) {
                 updateProduct(id, values);
                 formik.resetForm();
-                navigate('/dashboard/product');
+                navigate('/dashboard');
             } else {
                 console.log("error");
             }

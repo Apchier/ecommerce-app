@@ -9,7 +9,7 @@ export const useUpdateProduct = () => {
       const response = await axiosIntance.put(`products/${id}`, product);
       const result = response.data
       console.log(result);
-      navigate('/dashboard/product');
+      navigate('/dashboard');
     } catch (error) {
       console.error(error);
     }
