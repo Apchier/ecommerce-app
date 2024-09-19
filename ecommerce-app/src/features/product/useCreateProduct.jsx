@@ -1,29 +1,27 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import axiosIntance from "../../libs/axios";
+import { SuccessAlert } from "../../components/elements/SweetAlert";
 
 export const useCreateProduct = () => {
-    // const [message, setMessage] = useState("");
-    // const [error, setError] = useState(null);
-
-    const [ state, setState ] = useState({
+    const [state, setState] = useState({
+        data: null,
+        pending: true,
+        error: null,
         message: "",
-        error: null
+        status: "",
     })
+
     const createProductData = async (data) => {
+        setState((prev) => ({ ...prev, pending: true, error: null }));
+
         try {
             const response = await axiosIntance.post("/products", data);
             setState({
                 ...state,
                 message: response.data.message
             })
-            
-            Swal.fire({
-                title: "Success!",
-                text: "Product has been created successfully.",
-                icon: "success",
-                confirmButtonText: "OK",
-            });
+            SuccessAlert(response.data.message);
         } catch (error) {
             setState({
                 ...state,
@@ -35,9 +33,9 @@ export const useCreateProduct = () => {
                 icon: "error",
                 confirmButtonText: "OK",
             });
-        } 
+        }
     }
-    return { 
+    return {
         ...state,
         createProductData
     };

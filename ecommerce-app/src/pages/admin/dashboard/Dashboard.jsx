@@ -1,49 +1,26 @@
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDeleteProduct } from "../../../features/product";
-import axiosInstance from "../../../libs/axios";
 import Pagination from "../../../components/elements/Pagination";
 import DropDownFilterDate from "../../../components/elements/DropDownFilterDate";
 import ProductsTable from "../../../components/fragments/ProductsTable";
 import UserTable from "../../../components/elements/UserTable";
 import Chart from "../../../components/elements/Chart";
-
+import { useProducts } from "../../../features/product/useProducts";
 
 export default function Dashboard() {
-    const [products, setProducts] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const [limit] = useState(10);
+    const [limit] = useState(10); 
+    const [page, setPage] = useState(1); 
+    const { data: products, isLoading, error, totalPages } = useProducts(limit, page); 
+    const { deleteProduct } = useDeleteProduct(); 
 
-    const [page, setPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
-    const navigate = useNavigate();
-
-    const { deleteProduct } = useDeleteProduct();
-
-    useEffect(() => {
-        const fetchProducts = async () => {
-            setIsLoading(true);
-            setError(null);
-            try {
-                const response = await axiosInstance.get(
-                    `/products?&limit=${limit}&page=${page}`
-                );
-                const result = response.data;
-                if (!result.data) {
-                    navigate(-1);
-                    return;
-                }
-                setProducts(result.data.products);
-                setTotalPages(Math.ceil(result.data.total / limit));
-            } catch (error) {
-                setError(error instanceof Error ? error.message : "Something went wrong");
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        fetchProducts();
-    }, [page, limit, navigate]);
+    const handleDeleteProduct = async (productId) => {
+        const success = await deleteProduct(productId); 
+        if (success) {
+            setPage(1);
+        } else {
+            console.error("Failed to delete product.");
+        }
+    };
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
@@ -57,6 +34,7 @@ export default function Dashboard() {
         { week: 'Week 6', likes: 18000 },
         { week: 'Week 7', likes: 21000 },
     ];
+
     const users = [
         { id: 1, name: "Aldy Ibnu Faizal", email: "aldyprotprot@example.com", status: "Active" },
         { id: 2, name: "Rafi Andrea Lesmana", email: "rafiprotprot@example.com", status: "Active" },
@@ -65,6 +43,7 @@ export default function Dashboard() {
     return (
         <div className="flex w-[1300px] min-h-screen container flex-col gap-10 text-text-gray">
             <div className="flex w-full flex-col gap-10 text-text-gray p-10 bg-white rounded-2xl">
+                {/* Header */}
                 <div className="flex justify-between items-center">
                     <span className="text-3xl font-bold">Your Report</span>
                     <DropDownFilterDate />
@@ -73,15 +52,21 @@ export default function Dashboard() {
                     See stats for your latest Campaign, and promote them to grow your audience.
                 </p>
 
+                {/* Chart Component */}
                 <Chart data={likesData} />
 
+                {/* User Table */}
                 <UserTable users={users} />
+
+                {/* Products Table */}
                 <ProductsTable
                     products={products}
-                    deleteProduct={deleteProduct}
+                    deleteProduct={handleDeleteProduct} 
                     page={page}
                     limit={limit}
                 />
+
+                {/* Pagination Component */}
                 <Pagination
                     className="flex justify-center items-center mt-4"
                     page={page}

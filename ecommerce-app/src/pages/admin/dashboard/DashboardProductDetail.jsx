@@ -1,19 +1,15 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useDeleteProduct, useFetchProductId } from "../../../features/product";
+import { Link, useParams } from "react-router-dom";
+import { useDeleteProduct } from "../../../features/product";
+import { useProductID } from "../../../features/product/useProductID";
 
 
 export default function DashboardProductDetail() {
-    const [product, setProduct] = useState(null);
-    const { product: fetchProduct } = useFetchProductId();
+    const { id } = useParams(); 
+    const { data: product, loading, error } = useProductID(id); 
     const { deleteProduct } = useDeleteProduct();
 
-    useEffect(() => {
-        if (fetchProduct) {
-            setProduct(fetchProduct);
-        }
-    }, [fetchProduct]);
-
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error.message}</div>;
     if (!product) return <div>No Product Found</div>;
 
     const renderElements = () => {
@@ -22,15 +18,15 @@ export default function DashboardProductDetail() {
                 <div className="hero-content flex-col lg:flex-row">
                     <img
                         src={"https://placehold.co/400x400"}
-                        className="max-w-sm rounded-lg shadow-xl" />
+                        className="max-w-sm rounded-lg shadow-xl mr-4" />
                     <div>
-                        <h1 className="text-5xl font-bold">{product?.name}</h1>
+                        <h1 className="text-5xl font-bold">{product.name}</h1>
                         <div className="py-6">
-                            <p className="">{product?.description}</p>
+                            <p className="">{product.description}</p>
                             <p className="text-sm text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid incidunt neque fugiat <br /> odio fuga cupiditate vitae eum vero quae sed?</p>
                         </div>
-                        <p className="text-green-600">Rp. {product?.price}</p>
-                        <p>{product?.category}</p>
+                        <p className="text-green-600">Rp. {product.price}</p>
+                        <p>{product.category}</p>
                         <div className="flex items-center gap-4">
                             <div className="mt-6">
                                 <Link

@@ -1,19 +1,41 @@
-import { useNavigate } from "react-router-dom";
 import axiosIntance from "../../libs/axios";
+import { useState } from "react";
+import { SuccessAlert } from "../../components/elements/SweetAlert";
 
 export const useUpdateProduct = () => {
-  const navigate = useNavigate();
+  const [state, setState] = useState({
+    data: { name: "", description: "", category: "", image: "", price: "" },
+    pending: false,
+    error: null,
+    message: "",
+    status: "",
+  });
 
-  const updateProduct = async (id, product) => {
+  const updateProduct = async (id, data) => {
+    setState(prev => ({ ...prev, pending: true, error: null }));
+
     try {
-      const response = await axiosIntance.put(`products/${id}`, product);
-      const result = response.data
-      console.log(result);
-      navigate('/dashboard');
+      const response = await axiosIntance.put(`products/${id}`, data);
+      const { message } = response.data;
+      setState({
+        product: response.data.data,
+        pending: false,
+        error: null,
+        message,
+        status: response.data.status,
+      });
+      SuccessAlert(message);
     } catch (error) {
-      console.error(error);
+      setState(prev => ({ 
+        ...prev, 
+        pending: false, 
+        error: error instanceof Error ? error : new Error('An unknown error while updating product'),
+      }));
     }
   }
 
-  return { updateProduct }
+  return {
+    ...state,
+    updateProduct
+  }
 }

@@ -2,15 +2,15 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import InputGroup from "../../../components/fragments/InputGroup";
 import { useUpdateProduct } from "../../../features/product";
-import { useFetchProductId } from "../../../features/product";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useProductID } from "../../../features/product/useProductID";
 
 export default function DashboardProductEdit() {
     const navigate = useNavigate();
     const { id } = useParams();
-    const { product } = useFetchProductId();
-    const { updateProduct } = useUpdateProduct();
+    const { data: product } = useProductID(id);
+    const { updateProduct, message } = useUpdateProduct();
 
 
     const validationSchema = Yup.object().shape({
@@ -70,8 +70,9 @@ export default function DashboardProductEdit() {
                 <div className="hero-content">
                     <img
                         src={"https://placehold.co/400x400"}
-                        className="max-w-sm rounded-lg shadow-xl" />
+                        className="max-w-sm rounded-lg shadow-xl mr-4" />
                     <div>
+                        {message && <p className="mb-6">{message}</p>}
                         <form
                             className="w-[400px] flex flex-col gap-4"
                             onSubmit={formik.handleSubmit}
